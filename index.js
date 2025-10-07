@@ -1,0 +1,5 @@
+function pass() {
+    pass
+}
+
+pass();
