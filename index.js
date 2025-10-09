@@ -6,7 +6,7 @@ function getNum(min, max) {
 
 function surge() {
     var number = document.getElementById("number")
-    var pick = Math.random(0, 9999)
+    var pick = getNum(0, 9999)
     String(pick).padStart(4, "0")
     number.textContent = pick
 }
