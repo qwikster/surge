@@ -10,3 +10,7 @@ function surge() {
     pick = String(pick).padStart(4, "0");
     number.textContent = pick;
 }
+
+function main() {
+    fetch()
+}
