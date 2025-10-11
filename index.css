@@ -18,12 +18,13 @@ body {
 
 header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
 header h1 {
   display: inline-block;
   border: 3px solid #7FFFD4;
+  border-radius: 15px;
   padding: 0.4em 1em;
   margin: 0;
   color: #7FFFD4;
@@ -33,11 +34,12 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
 .surge {
-  border: 3px solid #7FFFD4;
+  border: 3px solid #006060;
+  border-radius: 15px;
   padding: 8px;
 }
 
@@ -47,15 +49,22 @@ header h1 {
   justify-content: flex-start;
   align-items: center;
   border: 2px solid #7FFFD4;
+  border-radius: 5px;
   padding: 6px;
   font-weight: bold;
+  height: 30px;
 }
 
 .surge-num {
-  border: 2px solid #7FFFD4;
-  padding: 6px 12px;
-  font-weight: bold;
-  color: #7FFFD4
+  background: #006060;
+  color: #7FFFD4;
+  padding: 2px 6px;
+  margin-top: 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  margin-right: 8px;
+  margin-left: 3px;
+  opacity: 0.8;
 }
 
 .surge-text {
@@ -67,18 +76,21 @@ header h1 {
   display: flex;
   align-items: center;
   border: 2px solid #7FFFD4;
+  border-radius: 5px;
   margin-top: 6px;
   padding: 6px;
 }
 
 .reroll {
   border: 2px solid #7FFFD4;
+  border-radius: 6px;
   background: #006060;
-  padding: 6px 12px;
+  padding: 4px;
   margin-right: 10px;
   font-weight: bold;
   cursor: pointer;
-  width: 72.5px;
+  width: 60px;
+  color: #7FFFD4;
 }
 
 .time {
@@ -93,3 +105,31 @@ header h1 {
   gap: 1.5rem;
 }
 
+.roll-slider {
+  display: flex;
+  align-items: center;
+  border: 3px solid #7FFFD4;
+}
+
+#roll-next {
+  flex: 1;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #7FFFD4;
+  height: 46px;
+}
+
+#roll-count {
+  margin-left: 10px;
+}
+
+#roll {
+  border: 3px solid #7FFFD4;
+  height: 46px;
+  font-weight: bold;
+  background: none;
+  cursor: pointer;
+  color: #7FFFD4;
+}
