@@ -228,6 +228,14 @@ hr {
   transform: scale(0.95);
 }
 
+.surge.sliding-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.surge.sliding-out {
+  animation: slideOut 0.5s ease-in forwards;
+}
+
 /* fancy shit*/
 
 @keyframes slideIn {
