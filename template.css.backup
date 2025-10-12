@@ -1,0 +1,140 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  display: inline-block;
+  border: 3px solid #7FFFD4;
+  border-radius: 15px;
+  padding: 0.4em 1em;
+  margin: 0;
+  color: #7FFFD4;
+}
+
+#surge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.surge {
+  border: 3px solid #006060;
+  border-radius: 15px;
+  padding: 8px;
+}
+
+.surge-result {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid #7FFFD4;
+  border-radius: 5px;
+  padding: 6px;
+  font-weight: bold;
+  height: 30px;
+}
+
+.surge-num {
+  background: #006060;
+  color: #7FFFD4;
+  padding: 2px 6px;
+  margin-top: 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  margin-right: 8px;
+  margin-left: 3px;
+  opacity: 0.8;
+}
+
+.surge-text {
+  flex: 1;
+  color: #7FFFD4;
+}
+
+.surge-time {
+  display: flex;
+  align-items: center;
+  border: 2px solid #7FFFD4;
+  border-radius: 5px;
+  margin-top: 6px;
+  padding: 6px;
+}
+
+.reroll {
+  border: 2px solid #7FFFD4;
+  border-radius: 6px;
+  background: #006060;
+  padding: 4px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 60px;
+  color: #7FFFD4;
+}
+
+.time {
+  color: #7FFFD4;
+  flex: 1;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.roll-slider {
+  display: flex;
+  align-items: center;
+  border: 3px solid #7FFFD4;
+  border-radius: 10px;
+  height: 40px;
+  background: #006060;
+}
+
+#roll-next {
+  flex: 1;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #7FFFD4;
+}
+
+#roll-count {
+  margin-left: 4px;
+  margin-right: 10px;
+}
+
+#roll {
+  border: 3px solid #7FFFD4;
+  border-radius: 10px;
+  padding: 10px;
+  height: 46px;
+  font-weight: bold;
+  background: #006060;
+  cursor: pointer;
+  color: #7FFFD4;
+}

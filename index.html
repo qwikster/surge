@@ -14,36 +14,34 @@
             <h1>Magic Surge</h1>
         </header>
 
-        <div id="surge-list">
-            <div class="surge">
-                <div class="surge-result">
-                    <div class="surge-text"><span class="surge-num">#0069</span>After each spell, caster feels completely alone and isolated</div>
-                </div>
-                <div class="surge-time">
-                    <button class="reroll">reroll</button>
-                    <div class="time"><b>Until:</b> He has composed 3d4 sonnets</div>
-                </div>
-            </div>
+        <div id="instructions">
+            <h3>Hit <b>Surge</b> to start!</h3>
+            <hr>
+            <p>Content from <i><a href="https://centralia.aquest.com/downloads/NLRMEv2.pdf">Orrex's Net Libram of Random Magical Effects</a></i>.</p>
+            <p>Built by <b><a href="https://github.com/qwikster">qwik</a></b> for <b><a href="https://siege.hackclub.com">Hack Club's Siege</a></b>.</p>
         </div>
 
         <div id="surge-list">
+            <!--added by js-->
+            <!--TEMP-->
             <div class="surge">
                 <div class="surge-result">
-                    <div class="surge-text"><span class="surge-num">#0069</span> After each spell, caster feels completely alone and isolated</div>
+                    <span class="surge-num">#0623</span>
+                    <div class="surge-text">Caster can't move more than 10 feet from the next tree he touches.</div>
                 </div>
                 <div class="surge-time">
-                    <button class="reroll">reroll</button>
-                    <div class="time"><b>Until:</b> He has gone 1d4 weeks without exposure to direct sunlight</div>
+                    <button class="reroll">Reroll</button>
+                    <div class="time"><b>Until: </b>He has rolled less than his Wisdom on 1d100, one attempt per day</div>
                 </div>
             </div>
         </div>
 
         <div class="controls">
-            <button id="roll">Roll Next</button>
-            <div class="roll-slider">
-                <button id="roll-next">Roll (<span id=roll-value>2</span>)</button>
-                <input type="range" id="roll-count" min="2" max="10" value="2">
+            <div class="slider-container">
+                <span id="roll-value">2</span>
+                <input type="range" id="roll-count" min="1" max="10" value="1">
             </div>
+            <button id="roll">Surge!</button>
         </div>
     </div>
 

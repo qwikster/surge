@@ -1,8 +1,17 @@
+:root {
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
   background: #222;
+  color: #7FFFD4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +19,22 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   max-width: 900px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+a:link {
+  color: #5FBFF9;
+}
+
+a:hover {
+  color: #75C7FA;
+}
+
+a:visited {
+  color: #8D9EC6;
 }
 
 header {
@@ -28,19 +49,44 @@ header h1 {
   padding: 0.4em 1em;
   margin: 0;
   color: #7FFFD4;
+  font-size: 2.2rem;
+}
+
+hr {
+  border-color: #7FFFD4;
+  width: 60%;
+}
+
+#instructions {
+  border: 2px solid #7FFFD4;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #7FFFD4;
+  transition: all 0.3s ease;
 }
 
 #surge-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 20px;
 }
 
 .surge {
+  flex-direction: column;
   border: 3px solid #006060;
   border-radius: 15px;
   padding: 8px;
+  background: none;
+  animation: slideIn 0.5s ease-out forwards;
+  transform-origin: top;
+  overflow: hidden;
+  display: flex;
+}
+
+.surge.removing {
+  animation: slideOut 0.5s ease-in forwards;
 }
 
 .surge-result {
@@ -52,19 +98,16 @@ header h1 {
   border-radius: 5px;
   padding: 6px;
   font-weight: bold;
-  height: 30px;
+  height: 46px;
 }
 
 .surge-num {
-  background: #006060;
+  background: #006060ce;
   color: #7FFFD4;
-  padding: 2px 6px;
-  margin-top: 6px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 5px;
   font-size: 0.85em;
-  margin-right: 8px;
-  margin-left: 3px;
-  opacity: 0.8;
+  font-weight: bold;
 }
 
 .surge-text {
@@ -85,12 +128,20 @@ header h1 {
   border: 2px solid #7FFFD4;
   border-radius: 6px;
   background: #006060;
-  padding: 4px;
+  padding: 4px 8.5px;
   margin-right: 10px;
   font-weight: bold;
   cursor: pointer;
-  width: 60px;
   color: #7FFFD4;
+  transition: var(--transition);
+}
+
+.reroll:hover {
+  background: #006060ce;
+}
+
+.reroll:active {
+  transform: scale(0.95);
 }
 
 .time {
@@ -103,33 +154,219 @@ header h1 {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.roll-slider {
+.slider-container {
   display: flex;
   align-items: center;
+  gap: 15px;
+  background: #006060;
   border: 3px solid #7FFFD4;
+  border-radius: 10px;
+  padding: 0 15px;
+  height: 46px;
+  margin-top: 20px;
 }
 
-#roll-next {
-  flex: 1;
-  border: none;
-  background: none;
-  font-weight: bold;
-  cursor: pointer;
+#roll-value {
   color: #7FFFD4;
-  height: 46px;
+  font-weight: bold;  
+  text-align: center;
 }
 
 #roll-count {
-  margin-left: 10px;
+  width: 100%;
+  cursor: pointer;
+  height: 5px;
+  border-radius: 5px;
+  background: #222;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#roll-count::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #7FFFD4;
+  cursor: pointer;
+  border: 2px solid #222;
+}
+
+#roll-count::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #7FFFD4;
+  cursor: pointer;
+  border: 2px solid #222;
 }
 
 #roll {
   border: 3px solid #7FFFD4;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
   height: 46px;
   font-weight: bold;
-  background: none;
+  background: #006060;
   cursor: pointer;
   color: #7FFFD4;
+  transition: var(--transition);
+}
+
+#roll:hover {
+  background: #006060ce;
+}
+
+#roll:active {
+  transform: scale(0.95);
+}
+
+/* fancy shit*/
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    max-height: 0px;
+  }
+}
+
+@keyframes burstIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* for the mobile peasants. machine, i will cut you down... */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+    max-width: none;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    padding: 0.5em;
+    word-wrap: break-word;
+  }
+
+  hr {
+    width: 80%;
+  }
+
+  #instructions {
+    font-size: 0.9rem;
+    padding: 8px
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .slider-container {
+    width: 100%;
+    padding: 10px;
+    flex-direction: row;
+    height: auto;
+    gap: 8px;
+  }
+
+  #roll-value {
+    font-size: 1rem;
+  }
+
+  #roll-count {
+    width: 100%;
+    margin-right: 20px;
+  }
+
+  #roll-count::-webkit-slider-thumb, #roll-count::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  #roll {
+    width: 100%;
+    font-size: 4rem;
+    height: auto;
+    padding: 12px;
+  }
+
+  #surge-list {
+    gap: 1rem;
+  }
+
+  .surge {
+    padding: 10px;
+  }
+
+  .surge-result, .surge-time {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    height: auto;
+  }
+
+  .surge-num {
+    margin-right: 0;
+    width: 40%;
+    text-align: center;
+    padding: 4px 10px;
+    align-self: center;
+  }
+
+  .reroll {
+    margin-right: 0;
+    width: 40%;
+    padding: 4px 10px;
+    font-size: 1rem;
+    align-self: center;
+  }
+
+  .surge-text, .time {
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: center;
+  }
 }

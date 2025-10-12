@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Magic Surge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tool for generating unintended magical consequences for TTRPGs like Dungeons and Dragons">
+    <meta name="author" content="qwik">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Magic Surge</h1>
+        </header>
+
+        <div id="surge-list">
+            <div class="surge">
+                <div class="surge-result">
+                    <div class="surge-text"><span class="surge-num">#0069</span>After each spell, caster feels completely alone and isolated</div>
+                </div>
+                <div class="surge-time">
+                    <button class="reroll">reroll</button>
+                    <div class="time"><b>Until:</b> He has composed 3d4 sonnets</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="surge-list">
+            <div class="surge">
+                <div class="surge-result">
+                    <div class="surge-text"><span class="surge-num">#0069</span> After each spell, caster feels completely alone and isolated</div>
+                </div>
+                <div class="surge-time">
+                    <button class="reroll">reroll</button>
+                    <div class="time"><b>Until:</b> He has gone 1d4 weeks without exposure to direct sunlight</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="roll">Roll Next</button>
+            <div class="roll-slider">
+                <button id="roll-next">Roll (<span id=roll-value>2</span>)</button>
+                <input type="range" id="roll-count" min="2" max="10" value="2">
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
