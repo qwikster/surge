@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const surgeDiv = document.createElement('div');
         
         surgeDiv.className = 'surge sliding-in';
-        surgeDiv.innerHTML = `
+        surgeDiv.innerHTML = `  
             <div class="surge-result">
                 <span class="surge-num">${surge.id}</span>
                 <div class="surge-text">${surge.surge}</div>

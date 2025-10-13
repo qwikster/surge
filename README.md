@@ -19,5 +19,7 @@ Use this to generate effects whenever magic is used in a way that could go wrong
 
 ## credits
 Created for Hack Club's Siege program (https://siege.hackclub.com)
+
 Magical effects and inspiration go to Orrex's Net Libram of Random Magical Effects (https://centralia.aquest.com/downloads/NLRMEv2.pdf)
+
 Thanks to you for playing this <3 and I hope you can bring ~~torture~~ use to this in your D&D sessions!
