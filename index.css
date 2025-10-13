@@ -23,6 +23,17 @@ body {
   max-width: 900px;
   padding: 20px;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+footer {
+  margin-top: 20px;
+  border: 2px solid #7FFFD4;
+  border-radius: 15px;
+  align-content: center;
+  text-align: center;
 }
 
 a:link {
@@ -62,7 +73,6 @@ hr {
   border: 2px solid #7FFFD4;
   border-radius: 15px;
   padding: 10px;
-  margin-bottom: 20px;
   text-align: center;
   color: #7FFFD4;
   transition: all 0.3s ease;
@@ -101,6 +111,7 @@ hr {
   padding: 6px;
   font-weight: bold;
   height: 46px;
+  animation: burstIn 0.5s ease-in forwards;
 }
 
 .surge-num {
@@ -124,6 +135,7 @@ hr {
   border-radius: 5px;
   margin-top: 6px;
   padding: 6px;
+  animation: burstIn 0.5s ease-in forwards;
 }
 
 .reroll {
@@ -236,16 +248,22 @@ hr {
   animation: slideOut 0.5s ease-in forwards;
 }
 
+#instructions.sliding-out {
+  animation: slideOut 0.5s ease-out forwards;
+}
+
 /* fancy shit*/
 
 @keyframes slideIn {
   from {
     opacity: 0;
     transform: translateY(-20px);
+    max-height: 0;
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    max-height: 200px;
   }
 }
 

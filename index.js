@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const surgeList = document.getElementById('surgeList');
+    const surgeList = document.getElementById('surge-list');
     const rollButton = document.getElementById('roll');
     const rollCount = document.getElementById('roll-count');
     const rollValue = document.getElementById('roll-value');
@@ -109,11 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
     "They have performed an exorcism on a member of the royal family",
     "They have been bitten by 1d6 different lycanthropes"
     ];
-
+ 
     //parser, not adding 10k lines to a code
     async function loadSurges() {
         try {
-            const response = await fetch('/wildMagic.txt')
+            const response = await fetch('https://qwikster.github.io/surge/wildMagic.txt');
 
             if (!response.ok) { throw new Error(`Could not load wildMagic.txt (${response.status})`) }
 
@@ -145,8 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     id: `#${id}`,
                     surge: surge_text
                 };
-            // TODO: still part of that first one (can this be improved)
-            }).filter(effect => effect !== null); //remove nulls from whitespace strings
+            }).filter(surge => surge !== null); //remove nulls from whitespace strings
         
         if (surges.length === 0) {
             throw new Error('surge list is empty, failed to load in a weird way?');
@@ -155,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`loaded all ${surges.length} surges`);
         } catch (error) {
             console.error('error loading surges: ', error);
-            surges = [{id: '#0000', text: 'ERROR, CHECK JS CONSOLE'}];
+            surges = [{id: '#0000', surge: 'ERROR, CHECK JS CONSOLE'}];
         }
     }
 
@@ -164,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function getSurge() {
-        return surges[Math.floor(Math.random() * durations.length)];
+        return surges[Math.floor(Math.random() * surges.length)];
     }
 
     function getDuration() {
@@ -179,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
         surgeDiv.className = 'surge sliding-in';
         surgeDiv.innerHTML = `
             <div class="surge-result">
-                <span class="surge-num">${effect.id}</span>
-                <div class="surge-text">${effect.text}</div>
+                <span class="surge-num">${surge.id}</span>
+                <div class="surge-text">${surge.text}</div>
             </div>
             <div class="surge-time">
                 <button class="reroll">Reroll</button>
@@ -202,20 +201,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function killSurges() {
-        const surges = surgeList.querySelectorAll('.surge');
-        if (surges.length === 0) return Promise.resolve();
+        const surgenodes = surgeList.querySelectorAll('.surge');
+        if (surgenodes.length == 0) { return Promise.resolve() }
 
         return new Promise(resolve => {
             let removed = 0;
             
-            surges.forEach(surge => {
+            surgenodes.forEach(surge => {
                 surge.classList.add('sliding-out');
                 surge.addEventListener('animationend', function()
                 {
                     surge.remove();
                     removed++;
                     
-                    if (removed === surges.length) {
+                    if (removed === surgenodes.length) {
                         resolve();
                     }
                 }, {once: true }); //HELL
@@ -224,11 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // no more hell :)
     rollButton.addEventListener('click', async function() {
-        if (instructions.style.display !== 'none') { // WHY IS THE OPERATOR DIFFERENT
-            instructions.style.display = 'none';
-        } // TODO: add animation, separate to instructions (abstract) and credits (persistent)
+        if (instructions) { // WHY IS THE OPERATOR DIFFERENT
+            instructions.classList.add('sliding-out');
+        }
+        setTimeout(click, 400);
+    });
 
-        await killSurges();
+    function click() {
+        killSurges();
+        instructions.remove()
 
         const count = parseInt(rollCount.value);
         for (let i = 0; i < count; i++) {
@@ -237,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 surgeList.appendChild(surgeElement);
             }, i * 100);
         }
-    });
+    };
 
     loadSurges();
 });
