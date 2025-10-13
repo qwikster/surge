@@ -156,6 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('error loading surges: ', error);
             surges = [{id: '#0000', surge: 'ERROR, CHECK JS CONSOLE'}];
         }
+
+        console.log(surges);
     }
 
     rollCount.addEventListener('input', function() {
@@ -179,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         surgeDiv.innerHTML = `
             <div class="surge-result">
                 <span class="surge-num">${surge.id}</span>
-                <div class="surge-text">${surge.text}</div>
+                <div class="surge-text">${surge.surge}</div>
             </div>
             <div class="surge-time">
                 <button class="reroll">Reroll</button>
